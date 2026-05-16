@@ -1,0 +1,21 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.MukundaKatta/phone",
+  "description": "MCP server: parse, validate, and format phone numbers (E.164, international, national).",
+  "version": "0.1.0",
+  "repository": {
+    "url": "https://github.com/MukundaKatta/phone-mcp",
+    "source": "github"
+  },
+  "websiteUrl": "https://github.com/MukundaKatta/phone-mcp",
+  "packages": [
+    {
+      "registryType": "npm",
+      "identifier": "@mukundakatta/phone-mcp",
+      "version": "0.1.0",
+      "transport": {
+        "type": "stdio"
+      }
+    }
+  ]
+}
