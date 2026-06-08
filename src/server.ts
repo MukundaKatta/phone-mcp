@@ -59,6 +59,8 @@ export function formatPhone(input: string, style: FormatStyle, defaultCountry?: 
       return p.formatNational();
     case 'rfc3966':
       return p.getURI();
+    default:
+      throw new Error('unknown format style: ' + String(style));
   }
 }
 

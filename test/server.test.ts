@@ -47,3 +47,19 @@ test('format rfc3966 produces tel: URI', () => {
 test('format throws on unparseable input', () => {
   assert.throws(() => formatPhone('not a number', 'e164'));
 });
+
+test('format throws on unknown style', () => {
+  // The MCP layer forwards untrusted args without runtime enum checks, so an
+  // unrecognized style must raise rather than silently returning undefined.
+  assert.throws(() => formatPhone('+14155550100', 'bogus' as never));
+});
+
+test('parse reports a line type', () => {
+  const r = parsePhone('+14155550100');
+  assert.equal(typeof r.type, 'string');
+});
+
+test('parse marks invalid number when default_country is missing', () => {
+  const r = parsePhone('(415) 555-0100');
+  assert.equal(r.valid, false);
+});
